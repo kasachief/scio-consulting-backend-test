@@ -22,7 +22,7 @@ public class HealthUnitService {
                 .stream()
                 .filter((element)-> element.getRegion() != null && element.getPeriod().equals("2014"))
                 .sorted(Comparator.comparing(HealthUnitEntity::getRegion))
-                //I think that I can implement a MapperClass here, but instead I'm gonna implement this map, because I don't wanna write a lot haha. :D
+                //It should be posible to use a MapperClass here but instead i'm using a map.
                 .map((element) -> new HealthUnitDTO(element.getRegion(), element.getPeriod(), element.getPct_hospitals_mu()))
                 .collect(Collectors.toList());
     }
